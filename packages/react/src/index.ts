@@ -1,3 +1,3 @@
-import { colors } from "@ignite-ui/tokens";
+import { colors } from '@ignite-ui/tokens'
 
-console.log(colors.gray100);
+console.log(colors.gray100)
