@@ -1,3 +1,6 @@
+// src/styles/index.ts
+import { createStitches, defaultThemeMap } from "@stitches/react";
+
 // ../tokens/dist/index.mjs
 var colors = {
   white: "#FFF",
@@ -72,7 +75,6 @@ var space = {
 };
 
 // src/styles/index.ts
-import { createStitches } from "@stitches/react";
 var {
   styled,
   css,
@@ -83,6 +85,11 @@ var {
   createTheme,
   config
 } = createStitches({
+  themeMap: {
+    ...defaultThemeMap,
+    height: "space",
+    width: "space"
+  },
   theme: {
     colors,
     fonts,
@@ -95,13 +102,28 @@ var {
 });
 
 // src/index.tsx
-import { jsx } from "react/jsx-runtime";
-var Title = styled("h1", { color: "$gray600" });
-function App() {
-  return /* @__PURE__ */ jsx(Title, {
-    children: "Hello World!"
-  });
-}
+var Button = styled("button", {
+  fontFamily: "$default",
+  backgroundColor: "$ignite500",
+  borderRadius: "$sm",
+  border: 0,
+  color: "$white",
+  variants: {
+    size: {
+      small: {
+        fontSize: 14,
+        padding: "$2 $4"
+      },
+      big: {
+        fontSize: 16,
+        padding: "$3 $6"
+      }
+    }
+  },
+  defaultVariants: {
+    size: "small"
+  }
+});
 export {
-  App
+  Button
 };
